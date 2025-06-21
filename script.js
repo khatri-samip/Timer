@@ -1,5 +1,10 @@
 console.log('connected.');
+let  intervalId;
+
 function  timer(){
+    if(intervalId){
+    clearInterval(intervalId);
+    }
     const a = document.querySelector('.js-hour');
     const b = document.querySelector('.js-mins');
     const c = document.querySelector('.js-sec');
@@ -16,7 +21,7 @@ function  timer(){
     total = hr + sec + seconds;
     let totalCalc = total;
 
-    let intervalId = setInterval(function(){
+     intervalId = setInterval(function(){
         totalCalc--;
          let seconds1 =  totalCalc;
     let hours1 = Math.floor(totalCalc / 3600);
@@ -31,4 +36,7 @@ function  timer(){
     }
 }
     ,1000);
+    document.querySelector('.js-hour').value = '';
+    document.querySelector('.js-mins').value = '';
+    document.querySelector('.js-sec').value = '';
 }
